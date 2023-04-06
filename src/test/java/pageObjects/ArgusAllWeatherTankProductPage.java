@@ -52,7 +52,6 @@ public class ArgusAllWeatherTankProductPage extends BasePage{
 	@FindBy(how = How.ID, using = "review_field-error")
 	private WebElement reviewErrorMessageText;
 	
-	//HARD CODED TEXT. ZAMENI
 	public void leaveAReview(String nickname, String summary, String review) {
 		reviewTabLink.click();
 		Actions hoverAction = new Actions(driver);
