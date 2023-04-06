@@ -21,10 +21,4 @@ public class UserFactory {
 		
 		return user;
 	}
-	
-	public static User configureCorrectUsernameAndPassword(User user) {
-		user.setConfirmPassword(user.getPassword());
-		
-		return user;
-	}
 }
