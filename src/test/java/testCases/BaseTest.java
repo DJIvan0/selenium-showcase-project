@@ -1,4 +1,4 @@
-package resources;
+package testCases;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,15 +12,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+public class BaseTest {
 
-public class Driver {
+	public WebDriver driver;
+	public Properties properties;
 
-	public static WebDriver driver;
-	public static Properties properties;
-
-	public static WebDriver initializeDriver() throws IOException {
+	@BeforeMethod
+	void setUp() throws IOException {
 
 		properties = new Properties();
 
@@ -30,27 +31,27 @@ public class Driver {
 		String browserName = properties.getProperty("browser");
 
 		if (browserName.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("--headless");
 			driver = new FirefoxDriver(options);
 		} else if (browserName.equalsIgnoreCase("IE")) {
-			WebDriverManager.edgedriver().setup();
 			EdgeOptions options = new EdgeOptions();
 			options.addArguments("--headless");
 			driver = new EdgeDriver(options);
 		}
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-
-		return driver;
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.get(properties.getProperty("url"));
 	}
 
+	@AfterMethod(alwaysRun = true)
+	void tearDown() {
+		driver.quit();
+	}
 }

@@ -6,45 +6,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
-public class FusionBackpackProductPage {
-
-	WebDriver driver;
+public class FusionBackpackProductPage extends BasePage {
 
 	public FusionBackpackProductPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
-
-	@FindBy(how = How.XPATH, using = "//span[normalize-space()='Add to Compare']")
-	private WebElement addToCompareLink;
+	
+	private WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
 	@FindBy(how = How.XPATH, using = "//a[@aria-label='store logo']//img")
 	private WebElement homePageLink;
+	
+	@FindBy(how = How.XPATH, using = "//a[@data-role='add-to-links']")
+	private WebElement addToCompareLink;
 
-	@FindBy(how = How.XPATH, using = "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")
+	@FindBy(how = How.XPATH, using = "//div[@role='alert']")
 	private WebElement confirmationMessage;
+	
+	@FindBy(how = How.XPATH, using = "//a[@title='Compare Products']")
+	private WebElement compareProductsPageLink;
 
-	public void clickOnAddToCompareLink() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(addToCompareLink));
+	@FindBy(how = How.XPATH, using = "//a[text()='comparison list']")
+	private WebElement compareProductsPageConfirmationMessageLink;
+
+	public void addToProductComparisonAndView(boolean headerLink) {
 		addToCompareLink.click();
+		if(headerLink) {
+			wait.until(ExpectedConditions.visibilityOf(compareProductsPageLink));
+			compareProductsPageLink.click();
+		}else {
+			wait.until(ExpectedConditions.visibilityOf(compareProductsPageConfirmationMessageLink));
+			compareProductsPageConfirmationMessageLink.click();
+		}
 	}
-
-	public void assertConfirmationMessagePresent() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(confirmationMessage));
-		Assert.assertTrue(confirmationMessage.isDisplayed());
-	}
-
-	public void clickOnHomePageLink() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(confirmationMessage));
-		homePageLink.click();
-	}
-
 }

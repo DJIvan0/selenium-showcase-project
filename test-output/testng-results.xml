@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-10T19:58:05 CET" name="Default suite" finished-at="2023-01-10T19:58:14 CET" duration-ms="8576">
+  <suite started-at="2023-04-06T14:40:40 CEST" name="Default suite" finished-at="2023-04-06T14:40:57 CEST" duration-ms="16766">
     <groups>
     </groups>
-    <test started-at="2023-01-10T19:58:05 CET" name="Default test" finished-at="2023-01-10T19:58:14 CET" duration-ms="8576">
-      <class name="testCases.ProductReviewTC">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.ProductReviewTC@8462f31]" started-at="2023-01-10T19:58:05 CET" name="setUp" finished-at="2023-01-10T19:58:09 CET" duration-ms="4266" status="PASS">
+    <test started-at="2023-04-06T14:40:40 CEST" name="Default test" finished-at="2023-04-06T14:40:57 CEST" duration-ms="16766">
+      <class name="testCases.ShoppingCartTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:40 CEST" name="setUp" finished-at="2023-04-06T14:40:44 CEST" duration-ms="3605" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="productReview()[pri:0, instance:testCases.ProductReviewTC@8462f31]" started-at="2023-01-10T19:58:09 CET" name="productReview" finished-at="2023-01-10T19:58:13 CET" duration-ms="3594" status="PASS">
+        <test-method is-config="true" signature="pageObjectSetUp()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:44 CEST" name="pageObjectSetUp" finished-at="2023-04-06T14:40:46 CEST" duration-ms="2147" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- productReview -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.ProductReviewTC@8462f31]" started-at="2023-01-10T19:58:13 CET" name="tearDown" finished-at="2023-01-10T19:58:14 CET" duration-ms="670" status="PASS">
+        </test-method> <!-- pageObjectSetUp -->
+        <test-method signature="addingToCartWithAllMandatoryFieldsFilledTest()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:46 CEST" name="addingToCartWithAllMandatoryFieldsFilledTest" finished-at="2023-04-06T14:40:50 CEST" duration-ms="4255" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addingToCartWithAllMandatoryFieldsFilledTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:50 CEST" name="tearDown" finished-at="2023-04-06T14:40:51 CEST" duration-ms="696" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.ProductReviewTC -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:51 CEST" name="setUp" finished-at="2023-04-06T14:40:54 CEST" duration-ms="2740" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="pageObjectSetUp()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:54 CEST" name="pageObjectSetUp" finished-at="2023-04-06T14:40:56 CEST" duration-ms="2150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pageObjectSetUp -->
+        <test-method signature="addingToCartWithoutAnyFieldsFilledTest()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:56 CEST" name="addingToCartWithoutAnyFieldsFilledTest" finished-at="2023-04-06T14:40:56 CEST" duration-ms="516" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addingToCartWithoutAnyFieldsFilledTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.ShoppingCartTests@54c5a2ff]" started-at="2023-04-06T14:40:56 CEST" name="tearDown" finished-at="2023-04-06T14:40:57 CEST" duration-ms="614" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.ShoppingCartTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
